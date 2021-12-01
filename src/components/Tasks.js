@@ -1,9 +1,15 @@
-
+import './Tasks.scss';
 
 const Tasks = () => {
     return(
         <div className='Tasks'>
-            List
+            <form action="">
+            <label className="MyCheckbox"> 
+            <input type="checkbox" />
+             <span className="Input"></span>
+             <span> TO DO</span>
+            </label>
+            </form>
         </div>
     )
 }

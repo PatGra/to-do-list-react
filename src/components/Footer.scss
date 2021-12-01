@@ -1,0 +1,42 @@
+.Footer{
+    background-color: black;
+    color: white;
+    width: 50vw;
+    min-height: 10vh;
+    margin-top: 2em;
+    border-radius: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+   
+}
+
+.Source, .Imprint, .Contact{
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1515px){
+    .Footer {
+        font-size: 1.75em;
+   
+    }
+  }
+  
+  @media screen and (max-width: 1013px){
+    .Footer  {
+        font-size: 1.5em;
+        width: 65vw;
+   
+    }
+  }
+  
+  @media screen and (max-width: 587px){
+    .Footer {
+        font-size: 1em;
+        width: 80vw;
+        min-height: 5vh;
+   
+    }
+  }
