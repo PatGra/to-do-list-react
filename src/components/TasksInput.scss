@@ -14,12 +14,16 @@
 }
 
 .form {
-    border: dotted .1em red;
-    border-radius: 3em;
+  
     display: flex;
     align-content: center;
     justify-content: center;
     padding: .25em;
+}
+
+.border{
+    border: dotted .1em red;
+    border-radius: 3em;
 }
 
 #tasks {
@@ -37,6 +41,22 @@
     border-radius: 3em;
 }
 
+.ShowNewToDo{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.NewToDo{
+    margin-top: .5em;
+    font-size: .5em;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: .5em;
+
+}
+
 @media screen and (max-width: 1515px) {
     .TasksInput {
         font-size: 1.75em;
@@ -50,6 +70,7 @@
         flex-direction: column;
         width: 35vw;
         white-space: nowrap;
+        text-transform: uppercase;
     }
 
     .TasksInput {
@@ -61,6 +82,7 @@
     }
 
 }
+
 
 
 @media screen and (max-width: 755px) {
