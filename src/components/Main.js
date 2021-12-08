@@ -2,32 +2,29 @@
 import TasksInput from "./TasksInput";
 import TasksDone from "./TasksDone";
 import Tasks from './Tasks';
+import { useState } from "react";
+import TaskItem from "./TaskItem";
 
 
 const Main = () => {
     const addTodo = (name) => {
         alert(`Button clicked. New Task: "${name}"`);
+        const newTask = {name:name, done: false}
+        setTodoList([...todoList, newTask])
     }
 
-    const todoList = [
-        {
-            text: 'supermarket',
-            done: false
-        },
+  
+    const [todoList, setTodoList ] = useState([])
 
-        {
-            text: 'make the laundry',
-            done: false
-        },
+       const openTodos = todoList.filter(todo => !todo.done);
+       const doneTodos = todoList.filter(todo => todo.done);
 
-        {
-            text: 'cleaning',
-            done: true
-        }
-    ]
-        const openTodos = todoList.filter(todo => !todo.done);
-        const doneTodos = todoList.filter(todo => todo.done);
 
+       /*const deleteTodo =()=>{
+           dispatch(
+               {type:'checkbox'}
+           )
+       }*/
 
     return(
         <div className='Main'>
@@ -35,9 +32,12 @@ const Main = () => {
             todoList={openTodos}
             />
             <TasksInput 
-                  onButton={addTodo}
+                  onButton={addTodo} 
             />
-            <TasksDone/>
+            {/*<TaskItem onCheckbox={deleteTodo}/>*/}
+            <TasksDone
+            todoList={doneTodos}
+            />
         </div>
     )
 };

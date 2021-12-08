@@ -5,7 +5,9 @@ const TasksDone = () => {
     return(
         <div className='TasksDone'>
             Done
-            <div className='Done'></div>
+            <div className='Done'>
+            
+            </div>
         </div>
     )
 }

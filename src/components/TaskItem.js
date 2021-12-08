@@ -1,8 +1,6 @@
 
 
 const TaskItem = (props) => {
-        // const todo = props.todo;
-        const { text, done } = props.todo;
     console.log(props);
     return(
      
@@ -10,9 +8,9 @@ const TaskItem = (props) => {
         <div className='Tasks'>
             <form action="">
             <label className="MyCheckbox"> 
-            <input type="checkbox" />
+            <input className='Checkbox' type="checkbox" />
              <span className="Input"></span>
-             <span> {text}</span>
+             <span> {props.todo.name}</span>
             </label>
             </form>
         </div>

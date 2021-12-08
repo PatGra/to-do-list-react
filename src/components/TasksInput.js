@@ -1,13 +1,18 @@
 
 import './TasksInput.scss'
 import { useState } from 'react';
+import TaskItem from "./TaskItem";
 
 const TasksInput = (props) => {
     
-    const [name, setName] = useState('Wäsche waschen');
+    const [name, setName] = useState('');
     
-    const answer = () => {
+
+    const answer = (event) => {
+      event.preventDefault()
     props.onButton(name);
+   setName('')
+
     }
 
     const changeHandler =(event) =>{
@@ -22,8 +27,8 @@ const TasksInput = (props) => {
             <div className='border'>
               <form className='form' action="">
             <input 
-              value={name}
-            type="text" id="tasks" name="fname" placeholder="add new task"
+            value={name}
+            type="text" id="tasks" name="name" placeholder="add new task"
             onChange={changeHandler}
             />
             <input className= 'btn' type="submit" value='add' onClick={answer} />
