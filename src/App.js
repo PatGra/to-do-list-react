@@ -14,7 +14,7 @@ function App() {
      style={{backgroundImage: `url(${background})`}}
      >
       <Header title='To Do List'/>
-      <Main/>
+      <Main style={{display: 'none'}}/>
       <Footer/>
     </div>
   );

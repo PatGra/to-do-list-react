@@ -2,41 +2,57 @@
 import TasksInput from "./TasksInput";
 import TasksDone from "./TasksDone";
 import Tasks from './Tasks';
-import { useState } from "react";
-import TaskItem from "./TaskItem";
+import { useReducer } from "react";
 
 
 const Main = () => {
-    const addTodo = (name) => {
-        alert(`Button clicked. New Task: "${name}"`);
-        const newTask = {name:name, done: false}
-        setTodoList([...todoList, newTask])
-    }
 
-  
-    const [todoList, setTodoList ] = useState([])
+        const newTask = [{
+            name: '', 
+            done: false
+        }
+        ]
+//array = das late array; action = {type:..., payload: ...}
+        const reducer = (array, action)=> {
+            if(action.type === 'checkbox'){
+                const idx = action.payload.index
+                const result = array.map((todo, index)=> { 
+                    if(idx === index){
+                        return {...todo, done:!todo.done}
+                    }
+                    return todo;
+                })
+                return result
+            }
+            if(action.type === 'submit'){
+                const result = [...array, {name: action.payload.name, done: false}]
+                return result
+            }
+        }
 
-       const openTodos = todoList.filter(todo => !todo.done);
-       const doneTodos = todoList.filter(todo => todo.done);
+     const [todoList, dispatch] = useReducer(reducer, newTask);
 
+     const openTodos = todoList.filter(todo => !todo.done);
+     const doneTodos = todoList.filter(todo => todo.done);
 
-       /*const deleteTodo =()=>{
+      const deleteTodo =()=>{
            dispatch(
                {type:'checkbox'}
-           )
-       }*/
+           );
+       };
+
+       const addTodo = () => {
+        dispatch(
+            {type:'submit'}
+        );
+       }
 
     return(
         <div className='Main'>
-            <Tasks
-            todoList={openTodos}
-            />
-            <TasksInput 
-                  onButton={addTodo} 
-            />
-            {/*<TaskItem onCheckbox={deleteTodo}/>*/}
-            <TasksDone
-            todoList={doneTodos}
+            <Tasks list={todoList} todoList={openTodos} dispatch={dispatch}/>
+            <TasksInput dispatch={dispatch} />
+            
+            <TasksDone todoList={doneTodos}
             />
         </div>
     )

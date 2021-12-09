@@ -6,7 +6,7 @@ console.log(props);
 
     return(
         <div>
-             {props.todoList.map((todo, index) => (<TaskItem todo={todo} key={index}/>))}
+             {props.todoList.map((todo, index) => (<TaskItem dispatch={props.dispatch} todo={todo} key={index} index={index} />))}
         </div>
     )
 }
