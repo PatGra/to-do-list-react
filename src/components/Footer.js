@@ -13,14 +13,14 @@ const Footer = () => {
 
     return(
         <div className='Footer'>
-          {/*  <NavLink to='/contact' className='Contact'>contact</NavLink>
+           <NavLink to='/contact' className='Contact'>contact</NavLink>
             <NavLink to='/imprint' className='Imprint'>imprint</NavLink>
             <a className='Source' href="https://de.freepik.com/vektoren/buch">image source</a>
             
      <Routes>
       <Route path='/contact' element={<Info data={info[0]}/>} />
       <Route path='/imprint' element={<Info data={info[1]}/>} />
-    </Routes>*/}
+    </Routes>
         </div>
     )
 }
