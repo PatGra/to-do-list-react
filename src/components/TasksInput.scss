@@ -14,7 +14,6 @@
 }
 
 .form {
-  
     display: flex;
     align-content: center;
     justify-content: center;
@@ -79,6 +78,9 @@
     }
     .btn{
         padding: .5em .25em;
+        width: 5em;
+        margin: 0 auto;
+        margin-top: .5em;
     }
 
 }

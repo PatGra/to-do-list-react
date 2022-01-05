@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import background from './images/680.jpg';
 
 
+
 function App() {
   
   return (
@@ -14,8 +15,9 @@ function App() {
      style={{backgroundImage: `url(${background})`}}
      >
       <Header title='To Do List'/>
-      <Main style={{display: 'none'}}/>
+      <Main/>
       <Footer/>
+
     </div>
   );
 }
