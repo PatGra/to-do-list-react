@@ -16,9 +16,9 @@ const Main = () => {
     //array = das late array; action = {type:..., payload: ...}
     const reducer = (array, action)=> {
         if(action.type === 'checkbox'){
-            const idx = action.payload.index
+            const id = action.payload.id
             const result = array.map((todo, index)=> { 
-                if(idx === index){
+                if(id === todo.id){
                     return {...todo, done:!todo.done}
                 }
                 return todo;
@@ -26,11 +26,16 @@ const Main = () => {
             return result
         }
         if(action.type === 'submit'){
-            const result = [...array, {name: action.payload.name, done: false}]
+            const result = [...array, {name: action.payload.name, done: false, id: action.payload.id}]
             return result
         }
         if(action.type === 'restoreLocalStorage'){
             return action.payload
+        }
+        if(action.type ==='remove'){
+            const id= action.payload.id
+            const result = array.filter(todo=> todo.id !== id)
+            return result
         }
     }
 
@@ -57,12 +62,13 @@ const Main = () => {
             {type:'submit'}
         );
        }
+      
 
     return(
         <div className='Main'>
             <Tasks list={todoList} todoList={openTodos} dispatch={dispatch}/>
             <TasksInput dispatch={dispatch} />
-            <TasksDone todoList={doneTodos}
+            <TasksDone todoList={doneTodos} dispatch={dispatch}
             />
         </div>
     )

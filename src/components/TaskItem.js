@@ -3,7 +3,13 @@
 const TaskItem = (props) => {
 
     function clicked(){
-        props.dispatch({type: 'checkbox', payload: {index: props.index}})
+        if( props.todo.done){
+            props.dispatch({type: 'remove', payload: {id: props.todo.id}})
+        } else{
+            props.dispatch({type: 'checkbox', payload: {id: props.todo.id}})
+        }
+        
+
     }
     console.log('taskItem', props);
     return( 

@@ -10,7 +10,8 @@ const TasksInput = (props) => {
 
     const answer = (event) => {
       event.preventDefault()
-      props.dispatch({type:'submit', payload:{name:input}});
+      const id = Date.now()
+      props.dispatch({type:'submit', payload:{name:input, id}});
       setInput('')
 
     }

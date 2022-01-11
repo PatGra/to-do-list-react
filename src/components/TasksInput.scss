@@ -8,9 +8,6 @@
     align-self: center;
     padding: .25em;
     margin: 0 auto;
-
-
-
 }
 
 .form {
@@ -58,14 +55,14 @@
 
 @media screen and (max-width: 1515px) {
     .TasksInput {
-        font-size: 1.75em;
+        font-size: 1em;
 
     }
 }
 
 @media screen and (max-width: 1166px) {
     .form {
-        font-size: 1.5em;
+        font-size: 1em;
         flex-direction: column;
         width: 35vw;
         white-space: nowrap;
